@@ -14,12 +14,13 @@ class JsonRequestExtensionTest extends TestCase
     {
         $container = new ContainerBuilder();
         $extension = new JsonRequestExtension();
+        $listenerService = 'sb_json_request.request_transformer';
 
         $this->assertInstanceOf(Extension::class, $extension);
 
         $extension->load([], $container);
 
-        $this->assertTrue($container->has('sb_json_request.request_transformer'));
+        $this->assertTrue($container->has($listenerService));
     }
 
     public function testAlias()

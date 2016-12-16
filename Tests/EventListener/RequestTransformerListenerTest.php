@@ -20,10 +20,9 @@ class RequestTransformerListenerTest extends TestCase
     }
 
     /**
-     * @test
      * @dataProvider jsonContentTypes
      */
-    public function it_transforms_requests_with_a_json_content_type($contentType)
+    public function testTransformRequest($contentType)
     {
         $data = ['foo' => 'bar'];
         $request = $this->createRequest($contentType, json_encode($data));
@@ -35,12 +34,9 @@ class RequestTransformerListenerTest extends TestCase
         $this->assertNull($event->getResponse());
     }
 
-    /**
-     * @test
-     */
-    public function it_returns_a_bad_request_response_if_json_is_invalid()
+    public function testBadRequestResponse()
     {
-        $request = $this->createRequest('application/json', '{meh}');
+        $request = $this->createRequest('application/json', '{maaan}');
         $event = $this->createGetResponseEventMock($request);
 
         $this->listener->onKernelRequest($event);
@@ -49,10 +45,9 @@ class RequestTransformerListenerTest extends TestCase
     }
 
     /**
-     * @test
      * @dataProvider notJsonContentTypes
      */
-    public function it_does_not_transform_other_content_types($contentType)
+    public function testNotTransformOtherContentType($contentType)
     {
         $request = $this->createRequest($contentType, 'some=body');
         $event = $this->createGetResponseEventMock($request);
@@ -63,10 +58,7 @@ class RequestTransformerListenerTest extends TestCase
         $this->assertNull($event->getResponse());
     }
 
-    /**
-     * @test
-     */
-    public function it_does_not_replace_request_data_if_there_is_none()
+    public function testNotReplaceRequestData()
     {
         $request = $this->createRequest('application/json', '');
         $event = $this->createGetResponseEventMock($request);
@@ -77,10 +69,7 @@ class RequestTransformerListenerTest extends TestCase
         $this->assertNull($event->getResponse());
     }
 
-    /**
-     * @test
-     */
-    public function it_does_not_replace_request_data_if_content_is_json_null()
+    public function testNotReplaceRequestDataIfNullContent()
     {
         $request = $this->createRequest('application/json', 'null');
         $event = $this->createGetResponseEventMock($request);
@@ -105,9 +94,9 @@ class RequestTransformerListenerTest extends TestCase
         return $event;
     }
 
-    private function createRequest($contentType, $body)
+    private function createRequest($contentType, $content)
     {
-        $request = new Request([], [], [], [], [], [], $body);
+        $request = new Request([], [], [], [], [], [], $content);
         $request->headers->set('CONTENT_TYPE', $contentType);
 
         return $request;
@@ -126,7 +115,7 @@ class RequestTransformerListenerTest extends TestCase
         return [
                 ['application/x-www-form-urlencoded'],
                 ['text/html'],
-                ['text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8']
+                ['text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8']
         ];
     }
 
