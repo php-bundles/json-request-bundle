@@ -50,11 +50,9 @@ class RequestTransformerListener
             return false;
         }
 
-        if ($data === null) {
-            return true;
+        if (null !== $data) {
+            $request->request->replace($data);
         }
-
-        $request->request->replace($data);
 
         return true;
     }
