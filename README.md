@@ -15,7 +15,7 @@ Installation
 * Require the bundle with composer:
 
 ``` bash
-composer require symfony-bundles/testing-json-request-bundle
+composer require symfony-bundles/json-request-bundle
 ```
 
 * Enable the bundle in the kernel:
