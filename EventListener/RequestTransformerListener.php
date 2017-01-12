@@ -6,11 +6,11 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
-class RequestTransformerListener
+class RequestTransformerListener implements RequestListenerInterface
 {
 
     /**
-     * @param GetResponseEvent $event
+     * {@inheritdoc}
      */
     public function onKernelRequest(GetResponseEvent $event)
     {
