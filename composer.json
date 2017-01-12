@@ -20,7 +20,7 @@
         ]
     },
     "require": {
-        "php": ">=5.5",
+        "php": ">=5.5.9",
         "symfony/framework-bundle": "~2.7|~3.0",
         "doctrine/annotations": "~1.1"
     },
@@ -30,7 +30,7 @@
     },
     "config": {
         "platform": {
-            "php": "5.5"
+            "php": "5.5.9"
         }
     },
     "extra": {
