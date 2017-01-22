@@ -14,8 +14,6 @@ class JsonRequestExtension extends ConfigurableExtension
      */
     protected function loadInternal(array $configs, ContainerBuilder $container)
     {
-        $alias = 'sb_json_request.request_transformer';
-
         $listener = new Definition($configs['listener']['request_transformer']);
 
         $listener->addTag('kernel.event_listener', [
@@ -24,7 +22,7 @@ class JsonRequestExtension extends ConfigurableExtension
             'priority' => 100
         ]);
 
-        $container->setDefinition($alias, $listener);
+        $container->setDefinition('sb_json_request.request_transformer', $listener);
     }
 
     /**
