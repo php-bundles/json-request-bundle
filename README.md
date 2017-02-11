@@ -10,6 +10,33 @@ Symfony JsonRequest Bundle
 [![Latest Stable Version][stable-image]][package-link]
 [![License][license-image]][license-link]
 
+Annotation
+----------
+This bundle will help you to work with json requests as standard requests without using «crutches».
+If previously for fetching of data from the request you did like this:
+`$data = json_decode($request->getContent())`,
+it is now in this already there is no need to.
+
+For example when sending json-request from AngularJS or etc.
+Early:
+``` php
+public function indexAction(Request $request)
+{
+    $data = json_decode($request->getContent());
+
+    // uses of request data
+    $name = isset($data['name']) ? $data['name'] : null;
+}
+```
+
+Now you can work with json-request as with standard request:
+``` php
+public function indexAction(Request $request)
+{
+    $name = $request->get('name');
+}
+```
+
 Installation
 ------------
 * Require the bundle with composer:
