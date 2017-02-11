@@ -8,7 +8,6 @@ use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 
 class JsonRequestExtension extends ConfigurableExtension
 {
-
     /**
      * {@inheritdoc}
      */
@@ -17,8 +16,8 @@ class JsonRequestExtension extends ConfigurableExtension
         $listener = new Definition($configs['listener']['request_transformer']);
 
         $listener->addTag('kernel.event_listener', [
-            'event'    => 'kernel.request',
-            'method'   => 'onKernelRequest',
+            'event' => 'kernel.request',
+            'method' => 'onKernelRequest',
             'priority' => 100
         ]);
 
@@ -32,5 +31,4 @@ class JsonRequestExtension extends ConfigurableExtension
     {
         return 'sb_json_request';
     }
-
 }

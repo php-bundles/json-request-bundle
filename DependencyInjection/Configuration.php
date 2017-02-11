@@ -8,7 +8,6 @@ use SymfonyBundles\JsonRequestBundle\EventListener\RequestTransformerListener;
 
 class Configuration implements ConfigurationInterface
 {
-
     /**
      * {@inheritdoc}
      */
@@ -30,5 +29,4 @@ class Configuration implements ConfigurationInterface
 
         return $builder;
     }
-
 }

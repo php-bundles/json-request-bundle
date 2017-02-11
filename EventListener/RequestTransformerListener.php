@@ -8,7 +8,6 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 class RequestTransformerListener implements RequestListenerInterface
 {
-
     /**
      * {@inheritdoc}
      */
@@ -56,5 +55,4 @@ class RequestTransformerListener implements RequestListenerInterface
 
         return true;
     }
-
 }

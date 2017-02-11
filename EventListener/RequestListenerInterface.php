@@ -6,7 +6,6 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 
 interface RequestListenerInterface
 {
-
     /**
      * @param GetResponseEvent $event
      */

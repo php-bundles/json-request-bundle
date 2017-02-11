@@ -9,7 +9,6 @@ use SymfonyBundles\JsonRequestBundle\DependencyInjection\JsonRequestExtension;
 
 class JsonRequestExtensionTest extends TestCase
 {
-
     public function testHasListener()
     {
         $container = new ContainerBuilder();
@@ -29,5 +28,4 @@ class JsonRequestExtensionTest extends TestCase
 
         $this->assertStringEndsWith('json_request', $extension->getAlias());
     }
-
 }

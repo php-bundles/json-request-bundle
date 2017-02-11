@@ -9,7 +9,6 @@ use SymfonyBundles\JsonRequestBundle\DependencyInjection\Configuration;
 
 class ConfigurationTest extends TestCase
 {
-
     public function testConfiguration()
     {
         $processor = new Processor();
@@ -21,5 +20,4 @@ class ConfigurationTest extends TestCase
 
         $this->assertArraySubset([], $configs);
     }
-
 }
