@@ -59,7 +59,7 @@ public function registerBundles()
 }
 ```
 
-* Configure the bundle in your config.yml.
+* Configure the bundle in your config.yml (optional).
 
 Defaults configuration:
 ``` yml
