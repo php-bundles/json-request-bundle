@@ -10,8 +10,8 @@ Symfony JsonRequest Bundle
 [![Latest Stable Version][stable-image]][package-link]
 [![License][license-image]][license-link]
 
-Introduction
-------------
+What is JsonRequest Bundle?
+---------------------------
 This bundle will help you to work with json requests as standard requests without using «crutches».
 If previously for fetching of data from the request you did like this:
 `$data = json_decode($request->getContent())`,
