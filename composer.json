@@ -28,11 +28,6 @@
         "phpunit/phpunit": "^4.8.0",
         "phpunit/php-code-coverage": "^2.2.0"
     },
-    "config": {
-        "platform": {
-            "php": "5.5.9"
-        }
-    },
     "extra": {
         "branch-alias": {
             "dev-master": "1.x-dev"
