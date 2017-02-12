@@ -8,7 +8,6 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
-
     public function __construct($environment, $debug)
     {
         parent::__construct($environment, $debug);
@@ -45,5 +44,4 @@ class AppKernel extends Kernel
     {
         $loader->load($this->getRootDir() . '/config/config_test.yml');
     }
-
 }

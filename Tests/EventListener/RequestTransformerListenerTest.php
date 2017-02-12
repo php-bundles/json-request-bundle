@@ -8,7 +8,6 @@ use SymfonyBundles\JsonRequestBundle\EventListener\RequestTransformerListener;
 
 class RequestTransformerListenerTest extends TestCase
 {
-
     /**
      * @var RequestTransformerListener
      */
@@ -105,18 +104,17 @@ class RequestTransformerListenerTest extends TestCase
     public function jsonContentTypes()
     {
         return [
-                ['application/json'],
-                ['application/x-json']
+            ['application/json'],
+            ['application/x-json'],
         ];
     }
 
     public function notJsonContentTypes()
     {
         return [
-                ['application/x-www-form-urlencoded'],
-                ['text/html'],
-                ['text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8']
+            ['application/x-www-form-urlencoded'],
+            ['text/html'],
+            ['text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'],
         ];
     }
-
 }

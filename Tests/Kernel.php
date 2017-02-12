@@ -4,7 +4,6 @@ namespace SymfonyBundles\JsonRequestBundle\Tests;
 
 class Kernel
 {
-
     /**
      * @var Fixtures\app\AppKernel
      */
@@ -23,5 +22,4 @@ class Kernel
 
         return static::$instance;
     }
-
 }
