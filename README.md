@@ -59,15 +59,6 @@ public function registerBundles()
 }
 ```
 
-* Configure the bundle in your config.yml (optional).
-
-Defaults configuration:
-``` yml
-sb_json_request:
-    listener:
-        request_transformer: "SymfonyBundles\JsonRequestBundle\EventListener\RequestTransformerListener"
-```
-
 [package-link]: https://packagist.org/packages/symfony-bundles/json-request-bundle
 [license-link]: https://github.com/symfony-bundles/json-request-bundle/blob/master/LICENSE
 [license-image]: https://poser.pugx.org/symfony-bundles/json-request-bundle/license
