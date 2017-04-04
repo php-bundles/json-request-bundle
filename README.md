@@ -1,5 +1,5 @@
-Symfony JsonRequest Bundle
-==========================
+SymfonyBundlesJsonRequestBundle
+===============================
 
 [![SensioLabsInsight][sensiolabs-insight-image]][sensiolabs-insight-link]
 
