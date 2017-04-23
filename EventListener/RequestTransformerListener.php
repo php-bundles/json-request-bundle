@@ -45,7 +45,7 @@ class RequestTransformerListener implements RequestListenerInterface
     {
         $data = json_decode($request->getContent(), true);
 
-        if (json_last_error() !== JSON_ERROR_NONE) {
+        if (json_last_error() !== JSON_ERROR_NONE || ($data && !is_array($data))) {
             return false;
         }
 

@@ -33,6 +33,22 @@ class RequestTransformerListenerTest extends TestCase
         $this->assertNull($event->getResponse());
     }
 
+    /**
+     * @dataProvider jsonContentTypes
+     */
+    public function testDoNotTransformRequestContainingScalarJsonValueA($contentType)
+    {
+        $content = json_encode('foo');
+        $request = $this->createRequest($contentType, $content);
+        $event = $this->createGetResponseEventMock($request);
+
+        $this->listener->onKernelRequest($event);
+
+        $this->assertEquals([], $event->getRequest()->request->all());
+        $this->assertEquals($content, $event->getRequest()->getContent());
+        $this->assertEquals(400, $event->getResponse()->getStatusCode());
+    }
+
     public function testBadRequestResponse()
     {
         $request = $this->createRequest('application/json', '{maaan}');
