@@ -49,7 +49,7 @@ class RequestTransformerListener implements RequestListenerInterface
             return false;
         }
 
-        if (null !== $data) {
+        if (is_array($data)) {
             $request->request->replace($data);
         }
 
