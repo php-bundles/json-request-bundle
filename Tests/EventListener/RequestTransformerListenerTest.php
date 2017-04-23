@@ -36,7 +36,7 @@ class RequestTransformerListenerTest extends TestCase
     /**
      * @dataProvider jsonContentTypes
      */
-    public function testDoNotTransformRequestContainingScalarJsonValueA($contentType)
+    public function testDoNotTransformRequestContainingScalarJsonValue($contentType)
     {
         $content = json_encode('foo');
         $request = $this->createRequest($contentType, $content);
@@ -46,7 +46,6 @@ class RequestTransformerListenerTest extends TestCase
 
         $this->assertEquals([], $event->getRequest()->request->all());
         $this->assertEquals($content, $event->getRequest()->getContent());
-        $this->assertEquals(400, $event->getResponse()->getStatusCode());
     }
 
     public function testBadRequestResponse()
