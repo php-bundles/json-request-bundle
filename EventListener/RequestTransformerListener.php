@@ -45,11 +45,11 @@ class RequestTransformerListener implements RequestListenerInterface
     {
         $data = json_decode($request->getContent(), true);
 
-        if (json_last_error() !== JSON_ERROR_NONE || ($data && !is_array($data))) {
+        if (json_last_error() !== JSON_ERROR_NONE) {
             return false;
         }
 
-        if (null !== $data) {
+        if (is_array($data)) {
             $request->request->replace($data);
         }
 
