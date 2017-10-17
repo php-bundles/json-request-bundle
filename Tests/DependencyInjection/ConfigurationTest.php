@@ -2,8 +2,8 @@
 
 namespace SymfonyBundles\JsonRequestBundle\Tests\DependencyInjection;
 
-use SymfonyBundles\JsonRequestBundle\Tests\TestCase;
 use Symfony\Component\Config\Definition\Processor;
+use SymfonyBundles\JsonRequestBundle\Tests\TestCase;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use SymfonyBundles\JsonRequestBundle\DependencyInjection\Configuration;
 

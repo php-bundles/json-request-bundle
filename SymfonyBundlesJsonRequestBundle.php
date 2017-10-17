@@ -13,5 +13,4 @@ class SymfonyBundlesJsonRequestBundle extends Bundle
     {
         return new DependencyInjection\JsonRequestExtension();
     }
-
 }
