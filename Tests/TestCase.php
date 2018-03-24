@@ -2,7 +2,7 @@
 
 namespace SymfonyBundles\JsonRequestBundle\Tests;
 
-abstract class TestCase extends \PHPUnit_Framework_TestCase
+abstract class TestCase extends \PHPUnit\Framework\TestCase
 {
     /**
      * @var \Symfony\Component\DependencyInjection\ContainerInterface
