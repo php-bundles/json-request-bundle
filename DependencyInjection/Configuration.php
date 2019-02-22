@@ -13,9 +13,9 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $builder = new TreeBuilder();
+        $builder = new TreeBuilder('sb_json_request');
 
-        $builder->root('sb_json_request')
+        $builder->getRootNode()
             ->children()
                 ->arrayNode('listener')
                     ->addDefaultsIfNotSet()
