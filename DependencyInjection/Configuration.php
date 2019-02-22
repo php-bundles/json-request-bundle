@@ -13,9 +13,16 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $builder = new TreeBuilder();
+        $builder = new TreeBuilder('sb_json_request');
 
-        $builder->root('sb_json_request')
+        if (\method_exists($builder, 'getRootNode')) {
+            $rootNode = $builder->getRootNode();
+        } else {
+            // BC layer for symfony/config 4.1 and older
+            $rootNode = $builder->root('maker');
+        }
+
+        $rootNode
             ->children()
                 ->arrayNode('listener')
                     ->addDefaultsIfNotSet()
