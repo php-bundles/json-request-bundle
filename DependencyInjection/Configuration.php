@@ -30,6 +30,9 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('request_transformer')
                             ->defaultValue(RequestTransformerListener::class)
                         ->end()
+                        ->scalarNode('priority')
+                            ->defaultValue(100)
+                        ->end()
                     ->end()
                 ->end()
             ->end();

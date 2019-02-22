@@ -18,7 +18,7 @@ class JsonRequestExtension extends ConfigurableExtension
         $listener->addTag('kernel.event_listener', [
             'event' => 'kernel.request',
             'method' => 'onKernelRequest',
-            'priority' => 100,
+            'priority' => $configs['listener']['priority'],
         ]);
 
         $container->setDefinition('sb_json_request.request_transformer', $listener);
