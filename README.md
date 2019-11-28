@@ -1,5 +1,5 @@
-SymfonyBundlesJsonRequestBundle
-===============================
+SymfonyBundles JsonRequest Bundle
+=================================
 
 [![SensioLabsInsight][sensiolabs-insight-image]][sensiolabs-insight-link]
 
@@ -17,7 +17,7 @@ If previously for fetching of data from the request you did like this:
 `$data = json_decode($request->getContent())`,
 it is now in this already there is no need to.
 
-For example when sending json-request from AngularJS or etc.
+For example when sending json-request from AngularJS, Vue.js or etc.
 Early:
 ``` php
 public function indexAction(Request $request)
