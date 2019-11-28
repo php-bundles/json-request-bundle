@@ -9,7 +9,7 @@ abstract class TestCase extends \PHPUnit\Framework\TestCase
      */
     protected $container;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->container = Kernel::make()->getContainer();
     }
