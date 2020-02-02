@@ -45,20 +45,6 @@ Installation
 composer require symfony-bundles/json-request-bundle
 ```
 
-* Enable the bundle in the kernel:
-
-``` php
-public function registerBundles()
-{
-    $bundles = [
-        // ...
-        new SymfonyBundles\JsonRequestBundle\SymfonyBundlesJsonRequestBundle(),
-        // ...
-    ];
-    ...
-}
-```
-
 [package-link]: https://packagist.org/packages/symfony-bundles/json-request-bundle
 [license-link]: https://github.com/symfony-bundles/json-request-bundle/blob/master/LICENSE
 [license-image]: https://poser.pugx.org/symfony-bundles/json-request-bundle/license
