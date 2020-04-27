@@ -22,7 +22,7 @@ Early:
 ``` php
 public function indexAction(Request $request)
 {
-    $data = json_decode($request->getContent());
+    $data = json_decode($request->getContent(), true);
 
     // uses request data
     $name = isset($data['name']) ? $data['name'] : null;
