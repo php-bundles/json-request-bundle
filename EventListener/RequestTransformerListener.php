@@ -20,7 +20,7 @@ class RequestTransformerListener implements RequestListenerInterface
         }
 
         if (false === $this->transform($request)) {
-            $response = Response::create('Unable to parse request.', 400);
+            $response = new Response('Unable to parse request.', 400);
 
             $event->setResponse($response);
         }
