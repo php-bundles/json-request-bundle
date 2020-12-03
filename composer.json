@@ -5,12 +5,7 @@
     "keywords": ["json", "symfony", "bundle", "angular"],
     "homepage": "https://github.com/symfony-bundles/json-request-bundle",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "Dmitry Khaperets",
-            "email": "khaperets@gmail.com"
-        }
-    ],
+    "authors": [{"name": "Dmitry Khaperets", "email": "khaperets@gmail.com"}],
     "autoload": {
         "psr-4": {
             "SymfonyBundles\\JsonRequestBundle\\": ""
@@ -20,7 +15,7 @@
         ]
     },
     "require": {
-        "php": "^7.3",
+        "php": "^7.3||^8.0",
         "symfony/framework-bundle": "^4.3||^5.0"
     },
     "require-dev": {
