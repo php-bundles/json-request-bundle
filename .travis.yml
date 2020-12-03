@@ -3,11 +3,13 @@ sudo: false
 
 php:
     - 7.3
+    - 7.4
+    - 8.0
 
 env:
     - SYMFONY_VERSION=4.3.*
-    - SYMFONY_VERSION=4.4.* DEPENDENCIES=dev
-    - SYMFONY_VERSION=5.* DEPENDENCIES=dev
+    - SYMFONY_VERSION=4.4.*
+    - SYMFONY_VERSION=5.*
 
 cache:
     directories:
