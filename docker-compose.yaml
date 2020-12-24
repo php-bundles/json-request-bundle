@@ -1,0 +1,9 @@
+version: '3.2'
+
+services:
+    php:
+        build: .
+        volumes:
+            - ./:/app
+        environment:
+            - XDEBUG_MODE=coverage
