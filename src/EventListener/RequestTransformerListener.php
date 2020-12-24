@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace SymfonyBundles\JsonRequestBundle\EventListener;
 
@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 
-class RequestTransformerListener
+final class RequestTransformerListener
 {
     public function onKernelRequest(RequestEvent $event): void
     {
