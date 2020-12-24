@@ -29,11 +29,11 @@ final class Kernel extends BaseKernel
 
     protected function configureContainer(ContainerConfigurator $container): void
     {
-        $container->import('../config/config.yml');
+        $container->import('../config/config.yaml');
     }
 
     protected function configureRoutes(RoutingConfigurator $routes): void
     {
-        $routes->import('../config/routes.yml');
+        $routes->import('../config/routes.yaml');
     }
 }
