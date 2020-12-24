@@ -8,26 +8,34 @@
     "authors": [{"name": "Dmitry Khaperets", "email": "khaperets@gmail.com"}],
     "autoload": {
         "psr-4": {
-            "SymfonyBundles\\JsonRequestBundle\\": ""
-        },
-        "exclude-from-classmap": [
-            "/Tests/"
-        ]
+            "SymfonyBundles\\JsonRequestBundle\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SymfonyBundles\\JsonRequestBundle\\Tests\\": "tests"
+        }
     },
     "require": {
-        "php": "^7.3||^8.0",
-        "symfony/framework-bundle": "^4.3||^5.0"
+        "ext-json": "*",
+        "php": "^7.4 || ^8.0",
+        "symfony/framework-bundle": "^5.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.4",
-        "phpunit/php-code-coverage": "^5.0",
-        "symfony/phpunit-bridge": "^4.3||^5.0",
-        "symfony/yaml": "^4.3||^5.0"
+        "doctrine/annotations": "^1.0",
+        "phpstan/phpstan": "^0.12",
+        "phpunit/php-code-coverage": "^9.2",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "^5.2",
+        "symfony/yaml": "^5.2"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "3.x-dev"
+            "dev-master": "4.x-dev"
         }
     }
 }
-

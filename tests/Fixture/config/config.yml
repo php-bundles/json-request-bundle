@@ -1,0 +1,8 @@
+framework:
+    test: ~
+    secret: test
+
+services:
+    SymfonyBundles\JsonRequestBundle\Tests\Fixture\App\Controller\:
+        resource: '../App/Controller'
+        tags: ['controller.service_arguments']

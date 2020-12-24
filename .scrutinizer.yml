@@ -1,7 +1,7 @@
 filter:
     excluded_paths:
+        - tests/*
         - vendor/*
-        - Tests/*
 
 checks:
     php:
@@ -9,10 +9,20 @@ checks:
         duplication: true
 
 build:
-    tests:
+    environment:
+        redis: false
+        docker: true
+
+    dependencies:
         override:
-            -
-                command: ./vendor/bin/phpunit --coverage-clover ./clover.xml
-                coverage:
-                    file: clover.xml
-                    format: clover
+            - docker-compose up -d --remove-orphans --build
+            - docker-compose exec -T php /usr/local/bin/php /usr/local/bin/composer install
+
+    nodes:
+        coverage:
+            tests:
+                override:
+                    -   command: docker-compose run --rm -T php /usr/local/bin/php /app/vendor/bin/phpunit --coverage-clover=coverage.xml
+                        coverage:
+                            file: coverage.xml
+                            format: clover
