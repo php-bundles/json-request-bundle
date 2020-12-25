@@ -17,8 +17,8 @@
         }
     },
     "require": {
+        "php": ">=7.4",
         "ext-json": "*",
-        "php": "^7.4 || ^8.0",
         "symfony/framework-bundle": "^5.0"
     },
     "require-dev": {
