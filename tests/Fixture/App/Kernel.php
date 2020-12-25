@@ -2,7 +2,6 @@
 
 namespace SymfonyBundles\JsonRequestBundle\Tests\Fixture\App;
 
-use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Routing\Loader\Configurator\RoutingConfigurator;
@@ -18,13 +17,6 @@ final class Kernel extends BaseKernel
             new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new \SymfonyBundles\JsonRequestBundle\JsonRequestBundle(),
         ];
-    }
-
-    public function shutdown(): void
-    {
-        parent::shutdown();
-
-        (new Filesystem())->remove($this->getCacheDir());
     }
 
     protected function configureContainer(ContainerConfigurator $container): void
