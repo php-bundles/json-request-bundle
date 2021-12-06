@@ -8,26 +8,26 @@
     "authors": [{"name": "Dmitry Khaperets", "email": "khaperets@gmail.com"}],
     "autoload": {
         "psr-4": {
-            "SymfonyBundles\\JsonRequestBundle\\": "src"
+            "SymfonyBundles\\JsonRequestBundle\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "SymfonyBundles\\JsonRequestBundle\\Tests\\": "tests"
+            "SymfonyBundles\\JsonRequestBundle\\Tests\\": "tests/"
         }
     },
     "require": {
         "php": ">=7.4 || ^8.0",
         "ext-json": "*",
-        "symfony/framework-bundle": "^5.0"
+        "symfony/framework-bundle": "^5.0 || ^6.0"
     },
     "require-dev": {
         "doctrine/annotations": "^1.0",
         "phpstan/phpstan": "^0.12",
         "phpunit/php-code-coverage": "^9.2",
         "phpunit/phpunit": "^9.5",
-        "symfony/browser-kit": "^5.2",
-        "symfony/yaml": "^5.2"
+        "symfony/browser-kit": "^5.2 || ^6.0",
+        "symfony/yaml": "^5.2 || ^6.0"
     },
     "config": {
         "preferred-install": "dist",
