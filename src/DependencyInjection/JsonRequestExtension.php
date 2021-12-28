@@ -13,7 +13,7 @@ final class JsonRequestExtension extends Extension
     public function load(array $configs, ContainerBuilder $container): void
     {
         $listener = new Definition(RequestTransformerListener::class);
-        $listener->addTag('kernel.event_listener', ['event' => KernelEvents::REQUEST]);
+        $listener->addTag('kernel.event_listener', ['event' => KernelEvents::REQUEST, 'priority' => 100]);
 
         $container->setDefinition(RequestTransformerListener::class, $listener);
     }
