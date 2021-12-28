@@ -15,11 +15,13 @@ build:
 
     dependencies:
         override:
-            - docker-compose up -d --remove-orphans --build
-            - docker-compose exec -T php /usr/local/bin/php /usr/local/bin/composer install
+            - composer install
 
     nodes:
         coverage:
             tests:
                 override:
-                    -   command: docker-compose run --rm -T php /usr/local/bin/php /app/vendor/bin/phpunit
+                    -   command: php vendor/bin/phpunit --coverage-clover=coverage.xml
+                        coverage:
+                            file: coverage.xml
+                            format: clover
