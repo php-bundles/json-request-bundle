@@ -9,14 +9,7 @@ checks:
         duplication: true
 
 build:
-    dependencies:
-            before:
-                - "find /home/scrutinizer/.phpenv/versions -name 'php.ini' -exec sed -i 's/^zend_extension_ts/;zend_extension_ts/' {} \\;"
-    
     tests:
         override:
             -
-                command: ./vendor/bin/phpunit --coverage-clover ./clover.xml
-                coverage:
-                    file: clover.xml
-                    format: clover
+                command: vendor/bin/phpunit
