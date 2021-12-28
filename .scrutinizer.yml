@@ -9,19 +9,10 @@ checks:
         duplication: true
 
 build:
-    environment:
-        redis: false
-        docker: true
-
-    dependencies:
+    tests:
         override:
-            - composer install
-
-    nodes:
-        coverage:
-            tests:
-                override:
-                    -   command: php vendor/bin/phpunit --coverage-clover=coverage.xml
-                        coverage:
-                            file: coverage.xml
-                            format: clover
+            -
+                command: ./vendor/bin/phpunit --coverage-clover ./clover.xml
+                coverage:
+                    file: clover.xml
+                    format: clover
