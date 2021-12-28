@@ -22,7 +22,4 @@ build:
         coverage:
             tests:
                 override:
-                    -   command: docker-compose run --rm -T php /usr/local/bin/php /app/vendor/bin/phpunit --coverage-clover=coverage.xml
-                        coverage:
-                            file: coverage.xml
-                            format: clover
+                    -   command: docker-compose run --rm -T php /usr/local/bin/php /app/vendor/bin/phpunit
