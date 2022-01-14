@@ -22,7 +22,6 @@
         "symfony/framework-bundle": "^4.3||^5.0||^6.0"
     },
     "require-dev": {
-        "doctrine/annotations": "^1.0",
         "phpstan/phpstan": "^0.12",
         "phpunit/php-code-coverage": "^9.2",
         "phpunit/phpunit": "^9.5",
