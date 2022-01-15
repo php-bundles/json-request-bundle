@@ -1,0 +1,8 @@
+# Files that composer should ignore when downloading package
+/Dockerfile  export-ignore
+/Makefile  export-ignore
+/README.md  export-ignore
+/docker-compose.yaml  export-ignore
+/phpstan.neon  export-ignore
+/phpunit.xml.dist  export-ignore
+/tests       export-ignore
