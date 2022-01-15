@@ -1,3 +1,3 @@
-app:
-    type: annotation
-    resource: ../App/Controller
+test_route:
+    path: /
+    controller: SymfonyBundles\JsonRequestBundle\Tests\Fixture\App\Controller\ExampleController::index
