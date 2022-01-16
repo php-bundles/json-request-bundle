@@ -16,7 +16,7 @@ class RequestTransformerListenerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->listener = new RequestTransformerListener();
+        $this->listener = new RequestTransformerListener(['json']);
     }
 
     public function testOnKernelRequestWithInvalidJson(): void
@@ -43,7 +43,7 @@ class RequestTransformerListenerTest extends TestCase
 
         $request = $this->createMock(Request::class);
         $request->method('getContent')->willReturn('{"test": "val"}');
-        $request->method('getContentType')->willReturn("json");
+        $request->method('getContentType')->willReturn('json');
         $request->request = $inputBag;
 
         $requestEvent = $this->createMock(RequestEvent::class);
@@ -53,6 +53,6 @@ class RequestTransformerListenerTest extends TestCase
 
         $this->listener->onKernelRequest($requestEvent);
 
-        $this->assertEquals(["test" => "val"], $inputBag->all());
+        $this->assertEquals(['test' => 'val'], $inputBag->all());
     }
 }
