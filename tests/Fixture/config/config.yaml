@@ -6,3 +6,6 @@ services:
     SymfonyBundles\JsonRequestBundle\Tests\Fixture\App\Controller\:
         resource: '../App/Controller'
         tags: ['controller.service_arguments']
+
+json_request:
+    content_types: ['json', 'jsonld', 'someother']

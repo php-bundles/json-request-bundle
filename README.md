@@ -43,6 +43,20 @@ public function indexAction(Request $request)
 }
 ```
 
+Per default request content will be transformed only for requests with content type `json` or `jsonld`.
+
+but you can stil configure it with
+
+``` yaml
+# serices.yaml
+
+json_request:
+    content_types:
+        - json
+        - jsonld
+        - someouthertype
+```
+
 [package-link]: https://packagist.org/packages/symfony-bundles/json-request-bundle
 [license-link]: https://github.com/symfony-bundles/json-request-bundle/blob/master/LICENSE
 [license-image]: https://poser.pugx.org/symfony-bundles/json-request-bundle/license
