@@ -17,6 +17,27 @@ final class ExampleControllerTest extends WebTestCase
         $this->assertSame($body, $response->getContent());
     }
 
+    public function testTransformJsonldRequest(): void
+    {
+        $body = \json_encode(['foo' => 'baz']);
+
+        $response = $this->sendRequest($body, 'application/ld+json');
+
+        $this->assertSame($body, $response->getContent());
+    }
+
+    public function testTransformSoneOtherTypeRequest(): void
+    {
+        $body = \json_encode(['foo' => 'baz']);
+
+        // add content type. they are stored in static Request::formats variable
+        (new Request())->setFormat('someother', 'application/some+other+type');
+
+        $response = $this->sendRequest($body, 'application/some+other+type');
+
+        $this->assertSame($body, $response->getContent());
+    }
+
     public function testInvalidBody(): void
     {
         $response = $this->sendRequest('{$body}');
@@ -24,7 +45,6 @@ final class ExampleControllerTest extends WebTestCase
         $this->assertSame('{"message":"Syntax error"}', $response->getContent());
         $this->assertSame(Response::HTTP_BAD_REQUEST, $response->getStatusCode());
     }
-
 
     public function testInvalidContentType(): void
     {

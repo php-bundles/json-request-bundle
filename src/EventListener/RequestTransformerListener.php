@@ -9,6 +9,13 @@ use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 final class RequestTransformerListener
 {
+    private array $contentTypes;
+
+    public function __construct(array $contentTypes)
+    {
+        $this->contentTypes = $contentTypes;
+    }
+
     public function onKernelRequest(RequestEvent $event): void
     {
         $request = $event->getRequest();
@@ -30,6 +37,6 @@ final class RequestTransformerListener
 
     private function supports(Request $request): bool
     {
-        return 'json' === $request->getContentType() && $request->getContent();
+        return in_array($request->getContentType(), $this->contentTypes, true) && $request->getContent();
     }
 }
