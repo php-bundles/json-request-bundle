@@ -22,6 +22,10 @@
         </testsuite>
     </testsuites>
 
+    <listeners>
+        <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
+    </listeners>
+
     <coverage>
         <include>
             <directory>src</directory>

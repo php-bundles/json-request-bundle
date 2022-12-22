@@ -7,7 +7,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 final class ExampleController
 {
-
     public function index(Request $request): JsonResponse
     {
         return new JsonResponse($request->request->all());

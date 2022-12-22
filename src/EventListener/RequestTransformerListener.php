@@ -37,6 +37,8 @@ final class RequestTransformerListener
 
     private function supports(Request $request): bool
     {
-        return in_array($request->getContentType(), $this->contentTypes, true) && $request->getContent();
+        $contentType = method_exists($request, 'getContentTypeFormat') ? $request->getContentTypeFormat() : $request->getContentType();
+
+        return in_array($contentType, $this->contentTypes, true) && $request->getContent();
     }
 }

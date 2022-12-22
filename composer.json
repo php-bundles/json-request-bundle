@@ -26,6 +26,7 @@
         "phpunit/php-code-coverage": "^9.2",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "^5.2 || ^6.0",
+        "symfony/phpunit-bridge": "^5.2 || ^6.2",
         "symfony/yaml": "^5.2 || ^6.0"
     },
     "config": {
