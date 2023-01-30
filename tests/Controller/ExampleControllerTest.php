@@ -1,16 +1,18 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace SymfonyBundles\JsonRequestBundle\Tests\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 final class ExampleControllerTest extends WebTestCase
 {
     public function testTransformRequest(): void
     {
-        $body = \json_encode(['foo' => 'baz']);
+        $body = json_encode(['foo' => 'baz']);
 
         $response = $this->sendRequest($body);
 
@@ -19,7 +21,7 @@ final class ExampleControllerTest extends WebTestCase
 
     public function testTransformJsonldRequest(): void
     {
-        $body = \json_encode(['foo' => 'baz']);
+        $body = json_encode(['foo' => 'baz']);
 
         $response = $this->sendRequest($body, 'application/ld+json');
 
@@ -28,7 +30,7 @@ final class ExampleControllerTest extends WebTestCase
 
     public function testTransformSoneOtherTypeRequest(): void
     {
-        $body = \json_encode(['foo' => 'baz']);
+        $body = json_encode(['foo' => 'baz']);
 
         // add content type. they are stored in static Request::formats variable
         (new Request())->setFormat('someother', 'application/some+other+type');
@@ -48,7 +50,7 @@ final class ExampleControllerTest extends WebTestCase
 
     public function testInvalidContentType(): void
     {
-        $body = \json_encode(['foo' => 'baz']);
+        $body = json_encode(['foo' => 'baz']);
 
         $response = $this->sendRequest($body, 'application/javascript');
 
@@ -56,10 +58,7 @@ final class ExampleControllerTest extends WebTestCase
     }
 
     /**
-     * @param mixed  $body
-     * @param string $contentType
-     *
-     * @return Response
+     * @param mixed $body
      */
     private function sendRequest($body, string $contentType = 'application/json'): Response
     {

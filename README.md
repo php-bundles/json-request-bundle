@@ -45,10 +45,10 @@ public function indexAction(Request $request)
 
 Per default request content will be transformed only for requests with content type `json` or `jsonld`.
 
-but you can stil configure it with
+But you can stil configure it with
 
 ``` yaml
-# serices.yaml
+# config/serices.yaml
 
 json_request:
     content_types:
