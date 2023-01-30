@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace SymfonyBundles\JsonRequestBundle\Tests;
 
@@ -100,7 +102,7 @@ class DependencyInjectionTest extends TestCase
         $extension->load([$config], $this->containerBuilder);
     }
 
-    private function assertContentTypes(array $expected)
+    private function assertContentTypes(array $expected): void
     {
         $listenerDefinition = $this->containerBuilder->findDefinition(RequestTransformerListener::class);
         $this->assertEquals($expected, $listenerDefinition->getArgument(0));

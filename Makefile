@@ -1,6 +1,9 @@
 clear-cache:
 	rm -rf var
 
+php-cs-fixer: clear-cache
+	docker-compose run --rm -T php /usr/local/bin/php-cs-fixer fix --no-interaction --verbose --dry-run
+
 phpunit: clear-cache
 	docker-compose run --rm -T php /usr/local/bin/php /app/vendor/bin/phpunit
 

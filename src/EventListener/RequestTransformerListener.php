@@ -1,10 +1,12 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace SymfonyBundles\JsonRequestBundle\EventListener;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 final class RequestTransformerListener
@@ -25,7 +27,7 @@ final class RequestTransformerListener
         }
 
         try {
-            $data = \json_decode((string) $request->getContent(), true, 512, \JSON_THROW_ON_ERROR);
+            $data = json_decode((string) $request->getContent(), true, 512, \JSON_THROW_ON_ERROR);
 
             if (\is_array($data)) {
                 $request->request->replace($data);
@@ -37,6 +39,8 @@ final class RequestTransformerListener
 
     private function supports(Request $request): bool
     {
-        return in_array($request->getContentType(), $this->contentTypes, true) && $request->getContent();
+        $contentType = method_exists($request, 'getContentTypeFormat') ? $request->getContentTypeFormat() : $request->getContentType();
+
+        return \in_array($contentType, $this->contentTypes, true) && $request->getContent();
     }
 }

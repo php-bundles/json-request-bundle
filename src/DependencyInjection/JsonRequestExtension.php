@@ -1,11 +1,13 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace SymfonyBundles\JsonRequestBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Processor;
-use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
+use Symfony\Component\HttpKernel\KernelEvents;
 use SymfonyBundles\JsonRequestBundle\EventListener\RequestTransformerListener;
 
 final class JsonRequestExtension extends Extension

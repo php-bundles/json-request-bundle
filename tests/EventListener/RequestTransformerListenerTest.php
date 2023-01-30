@@ -12,7 +12,16 @@ use SymfonyBundles\JsonRequestBundle\EventListener\RequestTransformerListener;
 
 class RequestTransformerListenerTest extends TestCase
 {
+    private static string $getContentTypeFormat = 'getContentTypeFormat';
+
     private RequestTransformerListener $listener;
+
+    public static function setUpBeforeClass(): void
+    {
+        if (!method_exists(Request::class, 'getContentTypeFormat')) {
+            self::$getContentTypeFormat = 'getContentType';
+        }
+    }
 
     protected function setUp(): void
     {
@@ -23,7 +32,7 @@ class RequestTransformerListenerTest extends TestCase
     {
         $request = $this->createMock(Request::class);
         $request->method('getContent')->willReturn('{"test": "val}');
-        $request->method('getContentType')->willReturn("json");
+        $request->method(self::$getContentTypeFormat)->willReturn('json');
 
         $requestEvent = $this->createMock(RequestEvent::class);
         $requestEvent->method('getRequest')->willReturn($request);
@@ -31,6 +40,7 @@ class RequestTransformerListenerTest extends TestCase
         $requestEvent->expects($this->once())->method('setResponse')->willReturnCallback(function ($resp) {
             $this->assertInstanceOf(JsonResponse::class, $resp);
             $this->assertEquals(Response::HTTP_BAD_REQUEST, $resp->getStatusCode());
+            $this->assertIsString($resp->getContent());
             $this->assertJson($resp->getContent());
         });
 
@@ -43,7 +53,7 @@ class RequestTransformerListenerTest extends TestCase
 
         $request = $this->createMock(Request::class);
         $request->method('getContent')->willReturn('{"test": "val"}');
-        $request->method('getContentType')->willReturn('json');
+        $request->method(self::$getContentTypeFormat)->willReturn('json');
         $request->request = $inputBag;
 
         $requestEvent = $this->createMock(RequestEvent::class);
