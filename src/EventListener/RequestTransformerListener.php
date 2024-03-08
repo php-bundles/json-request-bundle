@@ -25,7 +25,7 @@ final class RequestTransformerListener
         }
 
         try {
-            $data = \json_decode((string) $request->getContent(), true, 512, \JSON_THROW_ON_ERROR);
+            $data = \json_decode((string) $request->getContentTypeFormat(), true, 512, \JSON_THROW_ON_ERROR);
 
             if (\is_array($data)) {
                 $request->request->replace($data);
@@ -37,6 +37,6 @@ final class RequestTransformerListener
 
     private function supports(Request $request): bool
     {
-        return in_array($request->getContentType(), $this->contentTypes, true) && $request->getContent();
+        return in_array($request->getContentTypeFormat(), $this->contentTypes, true) && $request->getContent();
     }
 }
