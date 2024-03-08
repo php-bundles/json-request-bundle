@@ -17,7 +17,7 @@
         }
     },
     "require": {
-        "php": ">=7.4 || ^8.0",
+        "php": ">=7.4 || >=8.0 || >=8.1",
         "ext-json": "*",
         "symfony/framework-bundle": "^4.3 || ^5.0 || ^6.0 || ^7.0"
     },
@@ -25,8 +25,8 @@
         "phpstan/phpstan": "^1.4",
         "phpunit/php-code-coverage": "^9.2",
         "phpunit/phpunit": "^9.5",
-        "symfony/browser-kit": "^5.2 || ^6.0",
-        "symfony/yaml": "^5.2 || ^6.0"
+        "symfony/browser-kit": "^5.2 || ^6.0 || ^7.0",
+        "symfony/yaml": "^5.2 || ^6.0 || ^7.0"
     },
     "config": {
         "preferred-install": "dist",
