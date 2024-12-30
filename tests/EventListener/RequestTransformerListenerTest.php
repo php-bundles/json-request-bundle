@@ -23,7 +23,7 @@ class RequestTransformerListenerTest extends TestCase
     {
         $request = $this->createMock(Request::class);
         $request->method('getContent')->willReturn('{"test": "val}');
-        $request->method('getContentTypeFormat')->willReturn("json");
+        $request->method('getContentType')->willReturn("json");
 
         $requestEvent = $this->createMock(RequestEvent::class);
         $requestEvent->method('getRequest')->willReturn($request);
@@ -43,7 +43,7 @@ class RequestTransformerListenerTest extends TestCase
 
         $request = $this->createMock(Request::class);
         $request->method('getContent')->willReturn('{"test": "val"}');
-        $request->method('getContentTypeFormat')->willReturn('json');
+        $request->method('getContentType')->willReturn('json');
         $request->request = $inputBag;
 
         $requestEvent = $this->createMock(RequestEvent::class);
